@@ -1,8 +1,5 @@
-import wpilib
-import navx
-
 def robotMap(self):
-    
+
     # Motor Map
     self.motorLeftFront = 10;
     self.motorLeftMiddle = 21;
