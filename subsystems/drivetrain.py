@@ -59,9 +59,7 @@ class Drivetrain(self):
             while self.isDisabled():
 
                 if self.timer.hasPeriodPassed(0.5):
-                    self.sd.putBoolean(
-                        "SupportsDisplacement", self.navx._isDisplacementSupported()
-                    )
+                    self.sd.putBoolean("SupportsDisplacement: ", self.navx._isDisplacementSupported())
                     self.sd.putBoolean("IsCalibrating: ", self.navx.isCalibrating())
                     self.sd.putBoolean("IsConnected: ", self.navx.isConnected())
                     self.sd.putNumber("Angle: ", self.navx.getAngle())
