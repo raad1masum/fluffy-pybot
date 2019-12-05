@@ -17,7 +17,7 @@ def robotMap(self):
     # Xbox Controller Map
     self.xboxController = 0
     self.xboxControllerLeftStickY = 1
-    self.xboxControlleRightStickY = 5
+    self.xboxControllerRightStickY = 5
     self.xboxControllerXButton = 3
     self.xboxControllerYButton = 4
 
