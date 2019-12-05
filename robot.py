@@ -5,6 +5,7 @@ import math
 import navx
 
 import robot_map
+from subsystems.drivetrain import robotMap
 
 class Robot(magicbot.MagicRobot):
     def robotPeriodic(self):
