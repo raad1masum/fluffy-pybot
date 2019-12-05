@@ -6,6 +6,7 @@ import navx
 
 import robot_map
 from subsystems.drivetrain import robotMap
+from wpilib.command import Commands
 
 class Robot(magicbot.MagicRobot):
     def robotPeriodic(self):
@@ -14,9 +15,14 @@ class Robot(magicbot.MagicRobot):
         """
         pass
 
+    def autonomousInit(self):
+        """
+        Prepare for autonomous mode.
+        """
+        
     def autonomous(self):
         """
-        Prepare for and start autonomous mode.
+        Start autonomous mode.
         """
         # Call autonomous
         super().autonomous()
@@ -39,8 +45,10 @@ class Robot(magicbot.MagicRobot):
         """
         Executed when teleoperated mode begins.
         """
+        Commands.tank_drive.TankDrive.tankDriveRobot.setSafetyEnabled(True)
 
     def teleopPeriodic(self):
         """
         Executed periodically while robot is in teleoperated mode.
         """
+        Commands.tank_drive.TankDrive.tankDriveRobot.tankDrive(self.leftStick.getY() * -1, self.rightStick.getY() * -1)
