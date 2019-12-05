@@ -63,3 +63,6 @@ class Robot(magicbot.MagicRobot):
         Executed periodically while robot is in teleoperated mode.
         """
         tank_drive.TankDrive.tankDriveRobot(self.leftStick.getY() * robot_map.nerf, self.rightStick.getY() * robot_map.nerf)
+
+if __name__ == '__main__':
+    wpilib.run(Robot)
