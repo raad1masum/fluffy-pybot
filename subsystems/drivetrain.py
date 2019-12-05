@@ -43,8 +43,8 @@ class Drivetrain(self):
 
         def speedLeftMotors(self, speed):
             Drivetrain.leftSideMotors.set(ControlMode.PercentOutput, -speed)
-            
-        def speedRightMotors(self):
+
+        def speedRightMotors(self, speed):
             Drivetrain.rightSideMotors.set(ControlMode.PercentOutput, speed)
 
     def gyro(self):
