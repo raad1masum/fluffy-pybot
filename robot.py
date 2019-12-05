@@ -55,4 +55,4 @@ class Robot(magicbot.MagicRobot):
         """
         Executed periodically while robot is in teleoperated mode.
         """
-        tank_drive.TankDrive.tankDriveRobot.tankDrive(self.leftStick.getY() * -1, self.rightStick.getY() * -1)
+        tank_drive.TankDrive.tankDriveRobot(self.leftStick.getY() * robot_map.nerf, self.rightStick.getY() * robot_map.nerf)
