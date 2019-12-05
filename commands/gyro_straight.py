@@ -8,5 +8,12 @@ from subsystems import drivetrain
 from commands import tank_drive
 
 class gyroStraight(self):
+
     if abs(navx.getAngle()) <= 3:
-        tank_drive.TankDrive.tankDriveRobot.tankDrive(robot_map.leftSlow * -1, robot_map.rightSlow * -1)
+        tank_drive.TankDrive.tankDriveRobot.tankDrive(robot_map.leftSlow - navx.getAngle(), robot_map.rightSlow - navx.getAngle())
+    
+    elif abs(navx.getAngle()) < 10:
+        if abs(navx.getAngle()) <= 3:
+            tank_drive.TankDrive.tankDriveRobot.tankDrive(robot_map.leftSlow - navx.getAngle(), robot_map.rightSlow - navx.getAngle())
+
+        tank_drive.TankDrive.tankDriveRobot.tankDrive(robot_map.leftSlow - navx.getAngle(), robot_map.rightSlow - navx.getAngle())

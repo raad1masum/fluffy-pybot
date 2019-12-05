@@ -15,38 +15,30 @@ from commandbased import CommandBasedRobot
 def run():
     raise ValueError()
 
-class Drivetrain(self):
+class Drivetrain():
+    def init(self):
 
-    # initialize wpilib stuff
-    self.sd = wpilib.SmartDashboard
-    self.timer = wpilib.Timer()
+        # initialize wpilib stuff
+        self.sd = wpilib.SmartDashboard
+        self.timer = wpilib.Timer()
 
-    # initialize motors
-    self.motorLeftFront = robot_map.motorLeftFront
-    self.motorLeftMiddle = robot_map.motorLeftMiddle
-    self.motorLeftBack = robot_map.motorLeftBack
-    self.leftSideMotors = wpilib.SpeedControllerGroup(robot_map.motorLeftFront, robot_map.motorLeftMiddle, robot_map.motorLeftBack)
-    self.motorRightFront = robot_map.motorRightFront
-    self.motorRightMiddle = robot_map.motorRightMiddle
-    self.motorRightBack = robot_map.motorRightBack
-    self.rightSideMotors = wpilib.SpeedControllerGroup(robot_map.motorRightFront, robot_map.motorRightMiddle, robot_map.motorRightBack)
+        # initialize motors
+        self.motorLeftFront = robot_map.motorLeftFront
+        self.motorLeftMiddle = robot_map.motorLeftMiddle
+        self.motorLeftBack = robot_map.motorLeftBack
+        self.leftSideMotors = wpilib.SpeedControllerGroup(robot_map.motorLeftFront, robot_map.motorLeftMiddle, robot_map.motorLeftBack)
+        self.motorRightFront = robot_map.motorRightFront
+        self.motorRightMiddle = robot_map.motorRightMiddle
+        self.motorRightBack = robot_map.motorRightBack
+        self.rightSideMotors = wpilib.SpeedControllerGroup(robot_map.motorRightFront, robot_map.motorRightMiddle, robot_map.motorRightBack)
 
-    # initialize drive sticks
-    self.leftStick = robot_map.xboxControllerLeftStickY
-    self.rightStick = robot_map.xboxControllerRightStickY
+        # initialize drive sticks
+        self.leftStick = robot_map.xboxControllerLeftStickY
+        self.rightStick = robot_map.xboxControllerRightStickY
 
-    # initialize gyro
-    self.navx = navx.AHRS.create_spi()
-    self.analog = wpilib.AnalogInput(navx.getNavxAnalogInChannel(robot_map.gyro))
-
-    turnController = wpilib.PIDController(self.kP, self.kI, self.kD, self.kF, self.ahrs, output=self)
-    turnController.setInputRange(-180.0, 180.0)
-    turnController.setOutputRange(-1.0, 1.0)
-    turnController.setAbsoluteTolerance(self.kToleranceDegrees)
-    turnController.setContinuous(True)
-
-    self.turnController = turnController
-    self.rotateToAngleRate = 0
+        # initialize gyro
+        self.navx = navx.AHRS.create_spi()
+        self.analog = wpilib.AnalogInput(navx.getNavxAnalogInChannel(robot_map.gyro))
 
     def motors(self):
 
