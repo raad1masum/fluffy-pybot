@@ -61,7 +61,7 @@ class Robot(magicbot.MagicRobot):
         """
         Executed periodically while robot is in teleoperated mode.
         """
-        tank_drive.TankDrive.drive(robot_map.robotMap.xboxControllerLeftStickY.getY() * robot_map.nerf, robot_map.robotMap.xboxControllerRightStickY.getY() * robot_map.nerf)
+        tank_drive.TankDrive.drive(robot_map.xboxControllerLeftStickY.getY() * robot_map.nerf, robot_map.xboxControllerRightStickY.getY() * robot_map.nerf)
 
 if __name__ == '__main__':
     wpilib.run(Robot)

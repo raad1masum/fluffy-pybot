@@ -1,5 +1,9 @@
 import wpilib
 
+xboxController = 0
+xboxControllerLeftStickY = 1
+xboxControlleRightStickY = 5
+
 def robotMap(self):
 
     # Motor Map
