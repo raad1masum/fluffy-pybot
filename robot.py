@@ -5,6 +5,7 @@ import math
 import navx
 
 import robot_map
+from subsystems import drivetrain
 from subsystems.drivetrain import robotMap
 from wpilib.command import Commands
 
@@ -19,13 +20,15 @@ class Robot(magicbot.MagicRobot):
         """
         Prepare for autonomous mode.
         """
+        pass
         
     def autonomous(self):
         """
         Start autonomous mode.
         """
         # Call autonomous
-        super().autonomous()
+        # super().autonomous()
+        pass
 
     def disabledInit(self):
         """
@@ -33,13 +36,14 @@ class Robot(magicbot.MagicRobot):
         """
         # Reset Gyro to 0
         self.navx.reset()
+        drivetrain.gyro.gyroDisabled()
 
     def disabledPeriodic(self):
         """
         Executed periodically while robot is disabled.
         Useful for testing.
         """
-        pass
+        drivetrain.gyro.gyroDisabled()
 
     def teleopInit(self):
         """
