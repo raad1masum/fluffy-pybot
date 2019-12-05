@@ -5,9 +5,10 @@ import math
 import navx
 
 import robot_map
+from wpilib.command import Command
+from commandbased import CommandBasedRobot
 from subsystems import drivetrain
-from subsystems.drivetrain import robotMap
-from wpilib.command import Commands
+from commands import tank_drive
 
 class Robot(magicbot.MagicRobot):
     def robotPeriodic(self):
@@ -48,10 +49,10 @@ class Robot(magicbot.MagicRobot):
         """
         Executed when teleoperated mode begins.
         """
-        Commands.tank_drive.TankDrive.tankDriveRobot.setSafetyEnabled(True)
+        tank_drive.TankDrive.tankDriveRobot.setSafetyEnabled(True)
 
     def teleopPeriodic(self):
         """
         Executed periodically while robot is in teleoperated mode.
         """
-        Commands.tank_drive.TankDrive.tankDriveRobot.tankDrive(self.leftStick.getY() * -1, self.rightStick.getY() * -1)
+        tank_drive.TankDrive.tankDriveRobot.tankDrive(self.leftStick.getY() * -1, self.rightStick.getY() * -1)
