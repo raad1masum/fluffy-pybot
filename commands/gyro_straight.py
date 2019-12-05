@@ -7,7 +7,7 @@ from commandbased import CommandBasedRobot
 from subsystems import drivetrain
 from commands import tank_drive
 
-class gyroStraight():
+class GyroStraight():
 
     if abs(navx.getAngle()) <= 3:
         tank_drive.TankDrive.tankDriveRobot(robot_map.leftSlow - navx.getAngle(), robot_map.rightSlow - navx.getAngle())

@@ -8,6 +8,7 @@ import robot_map
 from wpilib.command import Command
 from commandbased import CommandBasedRobot
 from subsystems import drivetrain
+from commands import gyro_straight
 from commands import tank_drive
 
 class Robot(magicbot.MagicRobot):
@@ -22,13 +23,12 @@ class Robot(magicbot.MagicRobot):
         Prepare for autonomous mode.
         """
         self.navx.reset()
-        pass
         
     def autonomous(self):
         """
         Start autonomous mode.
         """
-        pass
+        gyro_straight.GyroStraight()
 
     def disabledInit(self):
         """
