@@ -1,3 +1,8 @@
+import wpilib
+
+def run():
+    raise ValueError()
+
 def robotMap(self):
 
     # Motor Map
@@ -30,3 +35,6 @@ def robotMap(self):
     self.rightSlow = -0.24;
     self.rotateSpeed = 0.35;
     self.rotateSpeedSlow = 0.25;
+
+if __name__ == "__main__":
+    wpilib.run(robotMap())
