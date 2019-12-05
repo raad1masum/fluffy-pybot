@@ -1,30 +1,28 @@
 import wpilib
 
-xboxController = 0
-xboxControllerLeftStickY = 1
-xboxControlleRightStickY = 5
+from ctre.wpi_talonsrx import WPI_TalonSRX
 
 def robotMap(self):
 
     # Motor Map
-    self.motorLeftFront = 10
-    self.motorLeftMiddle = 21
-    self.motorLeftBack = 23
-    self.motorRightFront = 11
-    self.motorRightMiddle = 20
-    self.motorRightBack = 22
+    self.motorLeftFront = WPI_TalonSRX(10)
+    self.motorLeftMiddle = WPI_TalonSRX(21)
+    self.motorLeftBack = WPI_TalonSRX(23)
+    self.motorRightFront = WPI_TalonSRX(11)
+    self.motorRightMiddle = WPI_TalonSRX(20)
+    self.motorRightBack = WPI_TalonSRX(22)
 
     # Xbox Controller Map
-    self.xboxController = 0
-    self.xboxControllerLeftStickY = 1
-    self.xboxControllerRightStickY = 5
-    self.xboxControllerXButton = 3
-    self.xboxControllerYButton = 4
+    self.xboxController = wpilib.XboxController(0)
+    self.xboxControllerLeftStickY = wpilib.XboxController(1)
+    self.xboxControllerRightStickY = wpilib.XboxController(5)
+    self.xboxControllerXButton = wpilib.XboxController(3)
+    self.xboxControllerYButton = wpilib.XboxController(4)
 
     # Joystick Controller Map
-    self.joystickController = 1
-    self.joystickStickY = 2
-    self.joystickStickX = 3
+    self.joystickController = wpilib.Joystick(1)
+    self.joystickStickY = wpilib.Joystick(2)
+    self.joystickStickX = wpilib.Joystick(3)
 
     #  Gyro map
     self.gyro = 9

@@ -5,11 +5,14 @@ import math
 import navx
 
 import robot_map
+from oi import xboxController
 from wpilib.command import Command
+from wpilib.drive import DifferentialDrive
 from commandbased import CommandBasedRobot
 from subsystems import drivetrain
 from commands import gyro_straight
 from commands import tank_drive
+from wpilib import XboxController
 
 class Robot(magicbot.MagicRobot):
 
@@ -61,7 +64,8 @@ class Robot(magicbot.MagicRobot):
         """
         Executed periodically while robot is in teleoperated mode.
         """
-        tank_drive.TankDrive.drive(robot_map.xboxControllerLeftStickY.getY() * robot_map.nerf, robot_map.xboxControllerRightStickY.getY() * robot_map.nerf)
+        
+        tank_drive.TankDrive.drive(xboxController.leftStickY * robot_map.nerf, xboxController.rightStickY * robot_map.nerf)
 
 if __name__ == '__main__':
     wpilib.run(Robot)
