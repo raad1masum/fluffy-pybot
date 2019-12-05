@@ -16,7 +16,7 @@ def run():
     raise ValueError()
 
 class Drivetrain():
-    def init(self):
+    def __init__(self):
 
         # initialize wpilib stuff
         self.sd = wpilib.SmartDashboard

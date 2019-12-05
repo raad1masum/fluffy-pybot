@@ -17,7 +17,7 @@ class Robot(magicbot.MagicRobot):
         """
         Objects are created here.
         """
-        robot_map.robotMap()
+        robot_map.robotMap(self)
 
     def robotPeriodic(self):
         """
@@ -42,27 +42,26 @@ class Robot(magicbot.MagicRobot):
         Executed once right away when robot is disabled.
         """
         # Reset Gyro to 0
-        self.navx.reset()
-        drivetrain.gyro.gyroDisabled()
+        drivetrain.Drivetrain.gyro(self)
 
     def disabledPeriodic(self):
         """
         Executed periodically while robot is disabled.
         Useful for testing.
         """
-        drivetrain.gyro.gyroDisabled()
+        drivetrain.Drivetrain.gyro(self)
 
     def teleopInit(self):
         """
         Executed when teleoperated mode begins.
         """
-        tank_drive.TankDrive.tankDriveRobot.setSafetyEnabled(True)
+        pass
 
     def teleopPeriodic(self):
         """
         Executed periodically while robot is in teleoperated mode.
         """
-        tank_drive.TankDrive.tankDriveRobot(self.leftStick.getY() * robot_map.nerf, self.rightStick.getY() * robot_map.nerf)
+        tank_drive.TankDrive.drive(robot_map.robotMap.xboxControllerLeftStickY.getY() * robot_map.nerf, robot_map.robotMap.xboxControllerRightStickY.getY() * robot_map.nerf)
 
 if __name__ == '__main__':
     wpilib.run(Robot)
