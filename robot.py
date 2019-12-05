@@ -12,6 +12,13 @@ from commands import gyro_straight
 from commands import tank_drive
 
 class Robot(magicbot.MagicRobot):
+
+    def createObjects(self):
+        """
+        Objects are created here.
+        """
+        robot_map.robotMap()
+
     def robotPeriodic(self):
         """
         Executed periodically regardless of mode.
