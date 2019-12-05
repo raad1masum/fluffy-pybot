@@ -20,14 +20,13 @@ class Robot(magicbot.MagicRobot):
         """
         Prepare for autonomous mode.
         """
+        self.navx.reset()
         pass
         
     def autonomous(self):
         """
         Start autonomous mode.
         """
-        # Call autonomous
-        # super().autonomous()
         pass
 
     def disabledInit(self):
