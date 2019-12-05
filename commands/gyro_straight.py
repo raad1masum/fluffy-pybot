@@ -9,37 +9,39 @@ from commands import tank_drive
 
 class GyroStraight():
 
-    if abs(navx.getAngle()) <= 3:
-        tank_drive.TankDrive.tankDriveRobot(robot_map.leftSlow - navx.getAngle(), robot_map.rightSlow - navx.getAngle())
-    
-    elif abs(navx.getAngle()) < 10:
+    def gyroStraight(self):
 
-        if navx.getAngle() > 0:
-            tank_drive.TankDrive.tankDriveRobot(robot_map.leftSlow, 1.1 * robot_map.rightSlow)
-
-        elif navx.getAngle() < 0:
-            tank_drive.TankDrive.tankDriveRobot(1.1 * robot_map.leftSlow, robot_map.rightSlow)
+        if abs(self.navx.getAngle()) <= 3:
+            tank_drive.TankDrive.tankDriveRobot(robot_map.leftSlow - self.navx.getAngle(), robot_map.rightSlow - self.navx.getAngle())
         
-    else:
+        elif abs(self.navx.getAngle()) < 10:
 
-        if navx.getAngle() > 0:
+            if self.navx.getAngle() > 0:
+                tank_drive.TankDrive.tankDriveRobot(robot_map.leftSlow, 1.1 * robot_map.rightSlow)
 
-            while navx.getAngle > 10:
-                tank_drive.TankDrive.tankDriveRobot(-robot_map.rotateSpeed, -robot_map.rotateSpeed)
-                
-            while navx.getAngle > 0:
-                tank_drive.TankDrive.tankDriveRobot(-robot_map.rotateSpeedSlow, -robot_map.rotateSpeedSlow)
+            elif self.navx.getAngle() < 0:
+                tank_drive.TankDrive.tankDriveRobot(1.1 * robot_map.leftSlow, robot_map.rightSlow)
             
-            while navx.getAngle < 0:
-                tank_drive.TankDrive.tankDriveRobot(robot_map.rotateSpeedSlow, robot_map.rotateSpeedSlow)
-
         else:
 
-            while navx.getAngle() > -10:
-                tank_drive.TankDrive.tankDriveRobot(robot_map.rotateSpeed, robot_map.rotateSpeed)
-            
-            while navx.getAngle() < 0:
-                tank_drive.TankDrive.tankDriveRobot(robot_map.rotateSpeedSlow, robot_map.rotateSpeedSlow)
-            
-            while navx.getAngle() > 0:
-                tank_drive.TankDrive.tankDriveRobot(-robot_map.rotateSpeedSlow, -robot_map.rotateSpeedSlow)
+            if self.navx.getAngle() > 0:
+
+                while self.navx.getAngle > 10:
+                    tank_drive.TankDrive.tankDriveRobot(-robot_map.rotateSpeed, -robot_map.rotateSpeed)
+                    
+                while self.navx.getAngle > 0:
+                    tank_drive.TankDrive.tankDriveRobot(-robot_map.rotateSpeedSlow, -robot_map.rotateSpeedSlow)
+                
+                while self.navx.getAngle < 0:
+                    tank_drive.TankDrive.tankDriveRobot(robot_map.rotateSpeedSlow, robot_map.rotateSpeedSlow)
+
+            else:
+
+                while self.navx.getAngle() > -10:
+                    tank_drive.TankDrive.tankDriveRobot(robot_map.rotateSpeed, robot_map.rotateSpeed)
+                
+                while self.navx.getAngle() < 0:
+                    tank_drive.TankDrive.tankDriveRobot(robot_map.rotateSpeedSlow, robot_map.rotateSpeedSlow)
+                
+                while self.navx.getAngle() > 0:
+                    tank_drive.TankDrive.tankDriveRobot(-robot_map.rotateSpeedSlow, -robot_map.rotateSpeedSlow)
