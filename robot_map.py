@@ -10,15 +10,15 @@ def robotMap(self):
 
     # Xbox Controller Map
     self.xboxController = 0;
-    self.leftStickY = 1;
-    self.rightStickY = 5;
-    self.xButton = 3;
-    self.yButton = 4;
+    self.xboxControllerLeftStickY = 1;
+    self.xboxControlleRightStickY = 5;
+    self.xboxControllerXButton = 3;
+    self.xboxControllerYButton = 4;
 
     # Joystick Controller Map
     self.joystickController = 1;
-    self.shotgunStickY = 2;
-    self.shotgunStickX = 3;
+    self.joystickStickY = 2;
+    self.joystickStickX = 3;
 
     #  Gyro map
     self.gyro = 9;
